@@ -6,7 +6,7 @@
     },
     "paths":
     {
-        "cacheFolder": "/cygdrive/h/10_Temp/downloads",
-        "librariesFolder": "/cygdrive/h/8_Programowanie/4_GitHub/Esp8266-Arduino-Makefile/esp8266-2.4.2/libraries"
+        "cacheFolder": "/var/downloads",
+        "librariesFolder": "/home/ubuntu/1_GIT/Esp8266-Arduino-Makefile/esp8266-2.4.2/libraries"
     }
 }

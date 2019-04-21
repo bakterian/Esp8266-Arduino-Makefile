@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Get Arduino core for ESP32 chip
 
 checkIfPrereqPresent ()
