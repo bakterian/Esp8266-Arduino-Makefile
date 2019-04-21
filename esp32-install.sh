@@ -1,8 +1,21 @@
 #!/bin/sh
 # Get Arduino core for ESP32 chip
-ESP32_VER=1.0.1
 
-DOWNLOAD_CACHE=/cygdrive/d/6_TMP/downloads
+checkIfPrereqPresent ()
+{
+	command -v $1 >/dev/null 2>&1 || { echo "I require a binary called: $1 , but it's not installed.  Aborting."; exit 1; }
+}
+
+checkIfPrereqPresent jq
+checkIfPrereqPresent wget
+checkIfPrereqPresent unzip
+checkIfPrereqPresent python
+checkIfPrereqPresent sed
+checkIfPrereqPresent make
+
+ESP32_VER=`cat config.json | jq '.espVersions.ESP32_VER' | cut -d "\"" -f 2`
+DOWNLOAD_CACHE=`cat config.json | jq '.paths.cacheFolder' | cut -d "\"" -f 2`
+
 mkdir $DOWNLOAD_CACHE
 
 # Get Arduino core for ESP32 chip
