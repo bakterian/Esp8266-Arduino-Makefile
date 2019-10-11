@@ -21,7 +21,7 @@ mkdir $DOWNLOAD_CACHE
 wget --no-clobber https://github.com/esp8266/Arduino/releases/download/$ESP8266_VER/esp8266-$ESP8266_VER.zip -P $DOWNLOAD_CACHE
 unzip -o $DOWNLOAD_CACHE/esp8266-$ESP8266_VER.zip
 mkdir esp8266-$ESP8266_VER/package
-wget --no-clobber http://arduino.esp8266.com/versions/$ESP8266_VER/package_esp8266com_index.json -O esp8266-$ESP8266_VER/package/package_esp8266com_index.template.json
+wget --no-clobber https://github.com/esp8266/Arduino/releases/download/$ESP8266_VER/package_esp8266com_index.json -O esp8266-$ESP8266_VER/package/package_esp8266com_index.template.json
 cd esp8266-$ESP8266_VER/tools && ./get.py && cd ../..
 if [ "$OSTYPE" == "cygwin" ] || [ "$OSTYPE" == "msys" ]; then
 	chmod +x ./esp8266-$ESP8266_VER/tools/esptool/esptool.exe
