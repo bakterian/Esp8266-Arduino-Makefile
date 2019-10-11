@@ -1,0 +1,27 @@
+ version: &configVersion 2
+ jobs:
+    PreBuildJob:  
+      docker:
+        - image: &dockerImage bakterian/ciembedded:v1
+      steps:
+        - run: echo "PreBuildJob started"
+        - run: echo "current directory:\n" && pwd
+        - run: echo "PreBuildJob ended"
+    CoreBuildJob:  
+      docker:
+        - image: *dockerImage
+      steps:
+        - run: echo "CoreBuildJob started"
+        - checkout
+        - run: echo "current directory:\n" && pwd
+        - run: echo "CoreBuildJob ended"
+
+ workflows:
+  version: *configVersion
+  BuildWorkflow:
+    jobs:
+      - PreBuildJob
+      - CoreBuildJob:
+          requires:
+            - PreBuildJob
+
