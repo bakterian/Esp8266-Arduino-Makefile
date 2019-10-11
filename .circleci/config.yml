@@ -14,6 +14,7 @@
         - run: echo "CoreBuildJob started"
         - checkout
         - run: echo "current directory:\n" && pwd
+        - run: ./esp8266-install.bash
         - run: echo "CoreBuildJob ended"
 
  workflows:
